@@ -6,24 +6,23 @@ import Link from 'next/link';
 import Date from '../components/date';
 
 export async function getStaticProps() {
-  const allPostsData = getSortedPostsData()
+  const allPostsData = getSortedPostsData();
   return {
     props: {
-      allPostsData
-    }
-  }
+      allPostsData,
+    },
+  };
 }
 
-export default function Home(
-  { allPostsData }:
-  {
-    allPostsData: {
-      date: string
-      title: string
-      id: string
-    }[]
-  }
-) {
+export default function Home({
+  allPostsData,
+}: {
+  allPostsData: {
+    date: string;
+    title: string;
+    id: string;
+  }[];
+}) {
   return (
     <Layout home>
       <Head>
@@ -33,7 +32,9 @@ export default function Home(
       <section className={utilStyles.headingMd}>
         <p>
           Hello, I am Leland Jobe; a software developer from Dallas Texas.{'  '}
-          You can contact me at <a href="https://www.linkedin.com/in/lajobe">Linked In</a></p>
+          You can contact me at{' '}
+          <a href="https://www.linkedin.com/in/lajobe">Linked In</a>
+        </p>
         <p>
           (This is a sample website - you’ll be building a site like this on{' '}
           <a href="https://nextjs.org/learn">our Next.js tutorial</a>.)
@@ -58,5 +59,5 @@ export default function Home(
         </ul>
       </section>
     </Layout>
-  )
+  );
 }
